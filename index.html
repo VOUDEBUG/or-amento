@@ -97,6 +97,16 @@
             text-align: center; /* Centraliza o texto */
             font-weight: bold; /* Torna o texto mais em ênfase */
         }
+
+        .empresa-img {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .empresa-img img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -115,6 +125,9 @@
         <div id="resultado"></div>
         <div class="link-whatsapp" id="linkWhatsapp" style="display: none;">
             <a href="#" id="linkInteresse">Tenho interesse em mais detalhes</a>
+        </div>
+        <div class="empresa-img">
+            <img src="images/WhatsApp Image 2024-02-21 at 15.34.54.jpeg" alt="Sobre a nossa empresa">
         </div>
     </div>
 
@@ -165,13 +178,10 @@
 
             // Mostra o link de interesse
             document.getElementById('linkWhatsapp').style.display = 'block';
-        });
 
-        // Adiciona evento ao link de interesse para redirecionar para o WhatsApp
-        document.getElementById('linkInteresse').addEventListener('click', function(event) {
-            var mensagemWhatsApp = 'Olá, tenho interesse em mais detalhes sobre o orçamento da piscina.';
-            var whatsappLink = 'https://api.whatsapp.com/send?phone=5511930932612&text=' + encodeURIComponent(mensagemWhatsApp);
-            window.location.href = whatsappLink;
+            // Adiciona volume e valor à mensagem do WhatsApp
+            var mensagemWhatsApp = 'Olá, gostaria de mais informações sobre o orçamento para uma piscina com volume de ' + volume + 'm³, no valor de R$ ' + valorFormatado + '.';
+            document.getElementById('linkInteresse').href = 'https://api.whatsapp.com/send?phone=5511930932612&text=' + encodeURIComponent(mensagemWhatsApp);
         });
     </script>
 </body>
